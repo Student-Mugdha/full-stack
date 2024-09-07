@@ -1,6 +1,6 @@
 import React from 'react'
 import './Banner.css'; // Import CSS file for styling
-import banner from "../../public/Banner.png";
+import banner from "/Banner.png";
 
 function Banner() {
   return (
