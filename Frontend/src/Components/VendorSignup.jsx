@@ -13,10 +13,10 @@
 
 import React from 'react'
 import { Link} from "react-router-dom";
-import Login from "./Login";
+import VendorLogin from "./VendorLogin";
 import { useForm } from "react-hook-form";
 
-const Signup = () => {
+const VendorSignup = () => {
     const {
         register,
         handleSubmit,
@@ -38,11 +38,11 @@ const Signup = () => {
                   ✕
                 </Link>
   
-                <h3 className="font-bold text-lg">User Signup</h3>
+                <h3 className="font-bold text-lg">Vendor Signup</h3>
 
-                  {/* UserID */}
+                  {/* VendorId */}
                 <div className="mt-4 space-y-2">
-                  <span>UserId</span>
+                  <span>VendorId</span>
                   <br />
                   <input
                     type="text"
@@ -58,9 +58,9 @@ const Signup = () => {
                   )}
                 </div>
 
-                  {/* UserName */}
+                  {/* VendorName */}
                 <div className="mt-4 space-y-2">
-                  <span>UserName</span>
+                  <span>VendorName</span>
                   <br />
                   <input
                     type="text"
@@ -75,7 +75,7 @@ const Signup = () => {
                     </span>
                   )}
                 </div>
-                  {/* UserPhoneNo. */}
+                  {/* VendorPhoneNo. */}
                 <div className="mt-4 space-y-2">
                   <span>Phone No.</span>
                   <br />
@@ -92,7 +92,7 @@ const Signup = () => {
                     </span>
                   )}
                 </div>
-                  {/* UserAddress */}
+                  {/* VendorAddress */}
                 <div className="mt-4 space-y-2">
                   <span>Address</span>
                   <br />
@@ -161,7 +161,7 @@ const Signup = () => {
                       >
                         Login
                       </button>{" "}
-                      <Login />
+                      <VendorLogin />
                     </p>
                   </div>
                 </div>
@@ -173,4 +173,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default VendorSignup

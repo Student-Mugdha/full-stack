@@ -1,5 +1,6 @@
 import React from 'react'
 import Login from './Login'
+import VendorLogin from './VendorLogin'
 
 function Navbar() {
     const navItems = (
@@ -89,10 +90,16 @@ function Navbar() {
                             </label>
                         </div>
                         <div>
-                            <a className="btn" onClick={() => document.getElementById("my_modal_3").showModal()}>
-                                Login
+                            <a className="btn w-40" onClick={() => document.getElementById("my_modal_3").showModal()}>
+                                User Login
                             </a>
                             <Login />
+                        </div>
+                        <div>
+                            <a className="btn w-40" onClick={() => document.getElementById("my_modal_4").showModal()}>
+                                Vendor Login
+                            </a>
+                            <VendorLogin />
                         </div>
                     </div>
                 </div>
