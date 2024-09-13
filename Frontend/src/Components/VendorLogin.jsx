@@ -45,7 +45,7 @@ function VendorLogin() {
             <Link
               to="/"
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
-              onClick={() => document.getElementById("my_modal_3").close()}
+              onClick={() => document.getElementById("my_modal_4").close()}
             >
               ✕
             </Link>
