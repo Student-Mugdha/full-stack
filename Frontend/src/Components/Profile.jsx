@@ -58,14 +58,7 @@ function Profile() {
     email: 'amitverma@example.com',
     phone: '9876543201',
     address: '67, Vallabh Nagar, Indore',
-    profilePicture: '/profile.jpeg',
-    bio: 'I love eating fresh fruits and trying out new recipes.',
-    subscription: {
-      type: 'Weekly',
-      boxSize: 'Large',
-      deliveryDay: 'Wednesday',
-    },
-    favoriteFruits: ['Apples', 'Bananas', 'Oranges'],
+    profilePicture: '/profile.png',
   };
 
   return (
@@ -83,12 +76,6 @@ function Profile() {
           <p>Phone: {userData.phone}</p>
           <p>Address: {userData.address}</p>
         </UserInfo>
-        <SubscriptionDetails>
-          <h3>Subscription Details</h3>
-          <p>Type: {userData.subscription.type}</p>
-          <p>Box Size: {userData.subscription.boxSize}</p>
-          <p>Delivery Day: {userData.subscription.deliveryDay}</p>
-        </SubscriptionDetails>
         <button className="bg-pink-500 text-white rounded-md px-3 py-1 hover:bg-pink-700 duration-200">
           Edit Profile
         </button>
