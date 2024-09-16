@@ -1,6 +1,7 @@
 import React from 'react'
 import './Banner.css'; // Import CSS file for styling
 import banner from "/Banner.png";
+import { Link } from 'react-router-dom';
 
 function Banner() {
   return (
@@ -13,7 +14,9 @@ function Banner() {
               Get the freshest and most delicious fruits from local vendors delivered directly to you.
               Enjoy the convenience of supporting your community while indulging in a variety of handpicked, seasonal fruits that are sourced locally. Our service ensures you receive high-quality, ripe, and nutritious produce, perfect for a healthy lifestyle. Stay connected with your neighborhood vendors and experience the difference of farm-fresh fruits delivered with care.
             </p>
-            <button className="banner-button">Order Now</button>
+            <Link to="/signup">
+              <button className="banner-button">Order Now</button>
+            </Link>
           </div>
         </div>
         <div className="order-1 w-full mt-20 md:w-1/2 mb-20">

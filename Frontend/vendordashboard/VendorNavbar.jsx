@@ -1,14 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function DashboardNavbar() {
+function VendorNavbar() {
     const navItems = (
         <>
             <li>
-                <a href="/userdashboard">Home</a>
-            </li>
-            <li>
-                <a href="/cart">Cart</a>
+                <a href="/vendordashboard">Home</a>
             </li>
             <li>
                 <a href="/profile">Profile</a>
@@ -108,4 +105,4 @@ function DashboardNavbar() {
     );
 }
 
-export default DashboardNavbar;
+export default VendorNavbar;

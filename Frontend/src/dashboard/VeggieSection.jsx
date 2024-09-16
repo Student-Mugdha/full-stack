@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './VeggieSection.css'; // CSS remains the same
+import DashboardNavbar from './DasboardNavbar';
 
 function VeggieSection() {
     // State to store the quantity of each vegetable (can be expanded for other veggies)
@@ -20,6 +21,7 @@ function VeggieSection() {
 
     return (
         <>
+            <DashboardNavbar />
             <div className="veggies-page" style={{ backgroundColor: '#1D232A', minHeight: '100vh', padding: '2rem' }}>
                 <h1 className="page-header" style={{ color: '#fff', textAlign: 'center', marginBottom: '2rem', fontSize: '2.5rem' }}>Fresh Vegetables</h1>
                 <div className="veggies-container">

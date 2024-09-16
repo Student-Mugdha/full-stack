@@ -1,27 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Login from '../Components/Login'
+import VendorLogin from '../Components/VendorLogin'
 
-function DashboardNavbar() {
+function HomeNavbar() {
     const navItems = (
         <>
             <li>
-                <a href="/userdashboard">Home</a>
+                <a href="/">Home</a>
             </li>
             <li>
-                <a href="/cart">Cart</a>
-            </li>
-            <li>
-                <a href="/profile">Profile</a>
+                <a href="/about-us">About Us</a>
             </li>
         </>
     );
-
-    const handleLogout = () => {
-        // Implement your logout logic here
-        console.log("Logging out...");
-        // Example: Redirect to login page
-        window.location.href = '/login';
-    };
 
     return (
         <>
@@ -57,7 +48,7 @@ function DashboardNavbar() {
                                 {navItems}
                             </ul>
                         </div>
-                        <div className="hidden md:block">
+                        {/* <div className="hidden md:block">
                             <label className="input input-bordered flex items-center gap-2">
                                 <input type="text" className="grow" placeholder="Search" />
                                 <svg
@@ -71,7 +62,7 @@ function DashboardNavbar() {
                                         clipRule="evenodd" />
                                 </svg>
                             </label>
-                        </div>
+                        </div> */}
                         <div>
                             <label className="swap swap-rotate">
                                 {/* this hidden checkbox controls the state */}
@@ -96,11 +87,18 @@ function DashboardNavbar() {
                                 </svg>
                             </label>
                         </div>
-                        <Link to="/">
-                            <button className="p-2.5 border-2 border-none text-white rounded-md bg-[#191E24] hover:bg-[#2A2F36] transition duration-300 ease-in-out">
-                                Logout
-                            </button>
-                        </Link>
+                        <div>
+                            <a className="btn w-40" onClick={() => document.getElementById("my_modal_3").showModal()}>
+                                User Login
+                            </a>
+                            <Login />
+                        </div>
+                        <div>
+                            <a className="btn w-40" onClick={() => document.getElementById("my_modal_4").showModal()}>
+                                Vendor Login
+                            </a>
+                            <VendorLogin />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -108,4 +106,4 @@ function DashboardNavbar() {
     );
 }
 
-export default DashboardNavbar;
+export default HomeNavbar;
