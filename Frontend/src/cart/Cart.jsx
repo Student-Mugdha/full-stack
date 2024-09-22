@@ -1,16 +1,52 @@
-import React from 'react'
-import './cart.css'; // Import the CSS file
+// Cart.jsx
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './Cart.css';
 
-function Cart() {
+function Cart({ cartItems, removeFromCart }) {
+    const totalPrice = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    const platformFee = 50;
+    const finalTotal = totalPrice + platformFee;
+
     return (
-        <>
-            <div className="empty-cart-container">
-                <h2 className="empty-cart-text">YOUR CART IS EMPTY</h2>
-                <button className="shop-button">SHOP OUR PRODUCTS</button>
-                <button className="buy-button">Procced to Buy</button>
-            </div>
-        </>
-    )
+        <div className="cart-container">
+            {cartItems.length === 0 ? (
+                <div className="empty-cart-container">
+                    <h2 className="empty-cart-text">YOUR CART IS EMPTY</h2>
+                    <Link to='/userdashboard'>
+                        <button className="shop-button">SHOP OUR PRODUCTS</button>
+                    </Link>
+                </div>
+            ) : (
+                <div className="cart-items">
+                    {cartItems.map((item, index) => (
+                        <div key={index} className="cart-item">
+                            <img src={item.image} alt={item.name} className="cart-item-image" />
+                            <div className="cart-item-details">
+                                <h3 className="cart-item-title">{item.name}</h3>
+                                <div className="cart-item-info">
+                                    <span>Quantity: {item.quantity}</span>
+                                    <span className="cart-item-price">Rs. {item.price * item.quantity}</span>
+                                </div>
+                            </div>
+                            <button onClick={() => removeFromCart(index)} className="remove-item-btn">Remove</button>
+                        </div>
+                    ))}
+                    <div className="total-price-container">
+                        <h3>Total Price: Rs. {totalPrice}</h3>
+                        <h3>Platform Fee: Rs. {platformFee}</h3>
+                        <h2>Final Total: Rs. {finalTotal}</h2>
+                    </div>
+                    <Link to='/userdashboard'>
+                        <button className="buy-button">Continue Buying</button>
+                    </Link>
+                    <Link to='/payment'>
+                        <button className="buy-button">Proceed to Buy</button>
+                    </Link>
+                </div>
+            )}
+        </div>
+    );
 }
 
-export default Cart
+export default Cart;
