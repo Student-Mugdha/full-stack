@@ -11,6 +11,8 @@ import FruitSection from './dashboard/FruitSection';
 import VeggieSection from './dashboard/VeggieSection';
 import VendorDashboard from '../vendordashboard/VendorDashboard';
 import AboutUs from './Components/AboutUs';
+import ViewOrders from '../vendordashboard/ViewOrders';
+import AddProduct from '../vendordashboard/AddProduct';
 
 function App() {
     const [cartItems, setCartItems] = useState([]);
@@ -46,6 +48,8 @@ function App() {
                 <Route path="/fruitsection" element={<FruitSection addToCart={addToCart} />} />
                 <Route path="/veggiesection" element={<VeggieSection addToCart={addToCart} />} />
                 <Route path="/vendordashboard" element={<VendorDashboard />} />
+                <Route path="/vieworders" element={<ViewOrders />} />
+                <Route path="/add-product" element={<AddProduct />} />
             </Routes>
         </>
     );

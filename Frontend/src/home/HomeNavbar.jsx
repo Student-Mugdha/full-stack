@@ -88,7 +88,7 @@ function HomeNavbar() {
                             </label>
                         </div>
                         <div>
-                            <a className="btn w-40" onClick={() => document.getElementById("my_modal_3").showModal()}>
+                            <a className="btn w-40 align-center" onClick={() => document.getElementById("my_modal_3").showModal()}>
                                 User Login
                             </a>
                             <Login />

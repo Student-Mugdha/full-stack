@@ -10,6 +10,12 @@ function VendorNavbar() {
             <li>
                 <a href="/profile">Profile</a>
             </li>
+            {/* <li>
+                <a href="/vieworders">View Orders</a>
+            </li>
+            <li>
+                <a href="/add-product">Add Product</a>
+            </li> */}
         </>
     );
 
@@ -54,7 +60,7 @@ function VendorNavbar() {
                                 {navItems}
                             </ul>
                         </div>
-                        <div className="hidden md:block">
+                        {/* <div className="hidden md:block">
                             <label className="input input-bordered flex items-center gap-2">
                                 <input type="text" className="grow" placeholder="Search" />
                                 <svg
@@ -68,7 +74,7 @@ function VendorNavbar() {
                                         clipRule="evenodd" />
                                 </svg>
                             </label>
-                        </div>
+                        </div> */}
                         <div>
                             <label className="swap swap-rotate">
                                 {/* this hidden checkbox controls the state */}
