@@ -1,0 +1,152 @@
+/* General Body Styles for Full-Page Background */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", sans-serif;
+  background-image: url("https://thumbs.dreamstime.com/b/citrus-fruit-mix-dark-grey-concrete-table-food-background-healthy-eating-antioxidant-detox-dieting-clean-eating-diet-90899607.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+/* General Dashboard Styles */
+.vendor-dashboard {
+  padding: 20px;
+  max-width: 80%;
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+  backdrop-filter: blur(10px);
+}
+
+/* Dashboard Heading */
+.vendor-dashboard h1 {
+  font-size: 2rem;
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Orders Section */
+.orders-section {
+  display: flex;
+  flex-direction: column; /* Changed layout to column */
+  gap: 20px; /* Space between each card */
+  max-height: 600px;
+  overflow-y: auto; /* Scroll if necessary */
+  padding: 10px;
+}
+
+/* Individual Order Cards */
+.orders-section li {
+  background-color: rgba(236, 240, 241, 0.9);
+  border: 1px solid #bdc3c7;
+  padding: 15px;
+  margin: 0;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.orders-section li:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Order Text Styling */
+.orders-section li p {
+  margin: 5px 0;
+  color: #34495e;
+  flex: 1;
+}
+
+.orders-section li p strong {
+  color: #2c3e50;
+}
+
+/* Order Actions */
+.orders-section .order-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; /* Space between the buttons */
+}
+
+/* Buttons */
+.orders-section .accept-btn,
+.orders-section .reject-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.accept-btn {
+  background-color: #27ae60;
+  color: white;
+}
+
+.accept-btn:hover {
+  background-color: #2ecc71;
+}
+
+.reject-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.reject-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Custom Scrollbar */
+.orders-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.orders-section::-webkit-scrollbar-thumb {
+  background-color: #bdc3c7;
+  border-radius: 10px;
+}
+
+.orders-section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vendor-dashboard {
+    padding: 15px;
+  }
+
+  .vendor-dashboard h1 {
+    font-size: 1.6rem;
+  }
+
+  .orders-section li {
+    padding: 10px;
+    flex-direction: column; /* Stack the text and buttons vertically on smaller screens */
+    align-items: flex-start;
+  }
+
+  .orders-section .order-actions {
+    width: 100%;
+    justify-content: space-between; /* Adjust button alignment */
+  }
+
+  .orders-section .accept-btn,
+  .orders-section .reject-btn {
+    width: 48%;
+  }
+}

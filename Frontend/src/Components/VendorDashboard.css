@@ -1,0 +1,175 @@
+/* VendorDashboard.css */
+html,
+body {
+  margin: 0;
+  height: 100%; /* Ensure full height for the body */
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-image: url("https://thumbs.dreamstime.com/b/citrus-fruit-mix-dark-grey-concrete-table-food-background-healthy-eating-antioxidant-detox-dieting-clean-eating-diet-90899607.jpg"); /* Background image */
+  background-size: cover; /* Cover the whole page */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repetition */
+  color: #ecf0f1; /* Light text for readability */
+}
+
+.vendor-dashboard {
+  padding: 40px; /* Increased padding for a spacious look */
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background-color: rgba(
+    29,
+    35,
+    42,
+    0.9
+  ); /* Semi-transparent background for readability */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); /* Increased shadow opacity */
+  animation: slideIn 0.5s ease forwards; /* Animation for the entire dashboard */
+  opacity: 0; /* Initial opacity for animation */
+  text-align: center; /* Center text within the dashboard */
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 3.5rem; /* Larger font size for title */
+  margin-bottom: 30px;
+  animation: fadeIn 0.5s; /* Animation on appearance */
+}
+
+.dashboard-description {
+  text-align: center;
+  font-size: 1.8rem; /* Increased font size for description */
+  margin-bottom: 40px;
+}
+
+/* Cards Container */
+.cards-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Space between cards */
+}
+
+/* Card Styles */
+.card {
+  background-color: rgba(
+    44,
+    47,
+    54,
+    0.9
+  ); /* Slightly transparent card background */
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 0.5s; /* Animation for cards */
+}
+
+.card-title {
+  font-size: 2.2rem; /* Larger font size for card title */
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.card-description {
+  font-size: 1.5rem; /* Larger font size for card description */
+  margin-bottom: 20px;
+}
+
+/* Button Styles */
+/* Button Styles */
+.card-button {
+  padding: 0; /* Remove padding to let the button touch the bottom */
+  font-size: 1.4rem; /* Larger font size for button */
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s; /* Added transition for box-shadow */
+  margin-top: auto; /* Push the button to the bottom of the container */
+  width: 100%; /* Make buttons full width */
+  height: 50px; /* Set a fixed height for buttons */
+  display: flex; /* Use flexbox for centering text */
+  align-items: center; /* Center text vertically */
+  justify-content: center; /* Center text horizontally */
+}
+
+/* Card Styles */
+.card {
+  background-color: rgba(
+    44,
+    47,
+    54,
+    0.9
+  ); /* Slightly transparent card background */
+  border-radius: 10px;
+  padding: 20px; /* Adjust padding */
+  padding-bottom: 10px; /* Additional space at the bottom for button spacing */
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 0.5s; /* Animation for cards */
+  display: flex; /* Use flexbox for card layout */
+  flex-direction: column; /* Arrange content vertically */
+  justify-content: space-between; /* Distribute space between elements */
+}
+
+.card-button:hover {
+  background-color: #218838; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly larger on hover */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+}
+
+.card-button:focus {
+  outline: none; /* Remove outline */
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.5); /* Focus ring */
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%); /* Start from the left */
+  }
+  to {
+    transform: translateX(0); /* End at the original position */
+    opacity: 1; /* Fade in */
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vendor-dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-title {
+    font-size: 2.5rem; /* Smaller title on smaller screens */
+  }
+
+  .dashboard-description {
+    font-size: 1.5rem; /* Adjust description font size */
+  }
+
+  .cards-container {
+    flex-direction: column; /* Stack cards vertically on small screens */
+    align-items: center; /* Center align cards */
+  }
+
+  .card {
+    width: 90%; /* Adjust card width for small screens */
+  }
+}

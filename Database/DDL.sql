@@ -2,11 +2,12 @@ CREATE DATABASE FRUITBOX;
 USE FRUITBOX;
 
 CREATE TABLE Vendors (
-    vendorID INT PRIMARY KEY,
-    vendorPassword VARCHAR(255) NOT NULL,
+    vendorID VARCHAR(50) PRIMARY KEY,
     vendorName VARCHAR(100) NOT NULL,
     vendorPhoneNumber VARCHAR(15),
-    vendorAddress VARCHAR(255)
+    vendorAddress VARCHAR(255),
+    vendorPassword VARCHAR(12),
+    vendorEmail VARCHAR(30)
 );
 
 CREATE TABLE user (
@@ -14,17 +15,15 @@ CREATE TABLE user (
     userName VARCHAR(30), 
     userEmail VARCHAR(30), 
     userPassword  VARCHAR(20),
-    userPhoneNumber INT(10), 
-    PRIMARY KEY (userID),
-     userAddress VARCHAR(255)
+    userPhoneNumber INT(10),
+    userAddress VARCHAR(255),
+    PRIMARY KEY (userID)
 );
 
 CREATE TABLE Orders (
-    orderID INT PRIMARY KEY,
-    userID VARCHAR(10),
-    vendorID INT,
-    quantity INT,
-    price FLOAT,
+    orderID VARCHAR(50) PRIMARY KEY,
+    userID VARCHAR(50),
+    vendorID VARCHAR(50),
     OrderDate DATE NOT NULL,
     DeliveryDate DATE,
     Status  VARCHAR(50),
@@ -36,9 +35,9 @@ CREATE TABLE Orders (
 );
 
 CREATE TABLE payment (
-    userID VARCHAR(10),
+    userID VARCHAR(50),
     paymentID VARCHAR(10), 
-    orderID INT, 
+    orderID VARCHAR(50), 
     paymentDate DATE,
     amount FLOAT, 
     paymentMode VARCHAR(15) CHECK (paymentMode IN ('Cash on Delivery', 'UPI', 'Debit Card')),
@@ -50,10 +49,12 @@ CREATE TABLE payment (
 );
 
 CREATE TABLE product (
-    productID VARCHAR(10),
-    vendorID INT,
+    productID VARCHAR(50),
+    vendorID VARCHAR(50),
+    vendorName VARCHAR(100),
     productName VARCHAR(30),
     price FLOAT,
+    quantity INT,
     PRIMARY KEY (productID),
     FOREIGN KEY (vendorID) REFERENCES Vendors(vendorID)
         ON DELETE CASCADE
@@ -70,7 +71,7 @@ CREATE TABLE Subscription (
 );
 
 CREATE TABLE Cart (
-    cartID INT PRIMARY KEY,
+    cartID VARCHAR(100) PRIMARY KEY,
     userID VARCHAR(10),
     TotalAmount DECIMAL(10, 2),
     FOREIGN KEY (userID) REFERENCES user(userID)
@@ -78,8 +79,8 @@ CREATE TABLE Cart (
 );
 
 CREATE TABLE SearchProduct (
-    vendorID INT,
-    productID VARCHAR(10),
+    vendorID VARCHAR(50),
+    productID VARCHAR(50),
     PRIMARY KEY (vendorID, productID),
     FOREIGN KEY (vendorID) REFERENCES Vendors(vendorID)
         ON DELETE CASCADE,

@@ -1,45 +1,93 @@
+/* Apply background image to the whole page */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("https://thumbs.dreamstime.com/b/citrus-fruit-mix-dark-grey-concrete-table-food-background-healthy-eating-antioxidant-detox-dieting-clean-eating-diet-90899607.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Banner wrapper */
+.banner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Full height of the viewport */
+}
+
+/* Banner container */
 .banner-container {
-    width: 100%;
-    height: 50vh; /* Adjust the height as needed */
-    /* background-image: url('your-background-image.jpg'); Replace with your image path */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-  }
-  
-  .banner-content {
-    text-align: center;
-    color: #fff; /* Text color */
-    padding: 20px;
-    /* background: rgba(13, 11, 31, 0.5); Dark background for text readability */
-    border-radius: 10px;
-  }
-  
-  .banner-title {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .banner-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-  }
-  
-  .banner-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #ff5722; /* Button color */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .banner-button:hover {
-    background-color: #e64a19; /* Button hover color */
-  }
-  
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  width: 50%; /* Smaller container */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  position: relative; /* For absolute positioning of content */
+  overflow: hidden; /* Prevents overflow */
+  background-color: rgba(
+    4,
+    28,
+    25,
+    0.7
+  ); /* Optional: Add a semi-transparent background for better text visibility */
+}
+
+/* Background image for the banner container */
+.banner-container::before {
+  content: "";
+  background-image: url("https://t3.ftcdn.net/jpg/06/44/20/72/360_F_644207281_wNOrW60rqGekRHS37zky13FNL7b58e29.jpg"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Behind the text */
+}
+
+/* Content inside banner */
+.banner-content {
+  color: white;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 0.6s ease-in-out;
+}
+
+.slide-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.banner-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.banner-subtitle {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* Center the button */
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.banner-button {
+  padding: 12px 24px;
+  background-color: #041c19;
+  color: white;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.banner-button:hover {
+  background-color: #278176;
+}

@@ -1,49 +1,75 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import axios from "axios";
-import toast from "react-hot-toast";
+
 function Login() {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    mode: "onChange", // This shows validation errors as the user types
+  });
 
   const onSubmit = async (data) => {
     const userInfo = {
-      email: data.email,
-      password: data.password,
+      userEmail: data.userEmail,
+      userPassword: data.userPassword,
     };
-    await axios
-      .post("http://localhost:4001/user/login", userInfo)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data) {
-          toast.success("Loggedin Successfully");
-          document.getElementById("my_modal_3").close();
-          setTimeout(() => {
-            window.location.reload();
-            localStorage.setItem("Users", JSON.stringify(res.data.user));
-          }, 1000);
+
+    try {
+      const res = await axios.post(
+        "http://localhost:3000/login/user",
+        userInfo,
+        {
+          withCredentials: true,
         }
-      })
-      .catch((err) => {
-        if (err.response) {
-          console.log(err);
-          toast.error("Error: " + err.response.data.message);
-          setTimeout(() => {}, 2000);
+      );
+
+      if (res.data) {
+        toast.success("Logged in Successfully");
+        localStorage.setItem("users", JSON.stringify(res.data.user));
+        setTimeout(() => {
+          navigate("/UserDashboard");
+        }, 1000);
+      }
+    } catch (err) {
+      console.error(err); // Log the entire error object for debugging
+      if (err.response) {
+        switch (err.response.status) {
+          case 400:
+            toast.error(
+              "Invalid input. Please check the fields and try again."
+            );
+            break;
+          case 401:
+            toast.error("Unauthorized: Incorrect email or password.");
+            break;
+          case 500:
+            toast.error("Server error. Please try again later.");
+            break;
+          default:
+            toast.error("An error occurred. Please try again.");
         }
-      });
+      } else {
+        toast.error(
+          "No response from the server. Please check your connection."
+        );
+      }
+    }
   };
+
   return (
     <div>
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
-            {/* if there is a button in form, it will close the modal */}
+            {/* Close modal button */}
             <Link
-              to="/"
+              to="/UserDashboard"
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
               onClick={() => document.getElementById("my_modal_3").close()}
             >
@@ -51,7 +77,8 @@ function Login() {
             </Link>
 
             <h3 className="font-bold text-lg">Login</h3>
-            {/* Email */}
+
+            {/* Email Input */}
             <div className="mt-4 space-y-2">
               <span>Email</span>
               <br />
@@ -59,16 +86,22 @@ function Login() {
                 type="email"
                 placeholder="Enter your email"
                 className="w-80 px-3 py-1 border rounded-md outline-none"
-                {...register("email", { required: true })}
+                {...register("userEmail", {
+                  required: "Email is required",
+                  pattern: {
+                    value: /^\S+@\S+$/i,
+                    message: "Invalid email format",
+                  },
+                })}
               />
-              <br />
-              {errors.email && (
+              {errors.userEmail && (
                 <span className="text-sm text-red-500">
-                  This field is required
+                  {errors.userEmail.message}
                 </span>
               )}
             </div>
-            {/* password */}
+
+            {/* Password Input */}
             <div className="mt-4 space-y-2">
               <span>Password</span>
               <br />
@@ -76,30 +109,36 @@ function Login() {
                 type="password"
                 placeholder="Enter your password"
                 className="w-80 px-3 py-1 border rounded-md outline-none"
-                {...register("password", { required: true })}
+                {...register("userPassword", {
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Password must be at least 6 characters",
+                  },
+                })}
               />
-              <br />
-              {errors.password && (
+              {errors.userPassword && (
                 <span className="text-sm text-red-500">
-                  This field is required
+                  {errors.userPassword.message}
                 </span>
               )}
             </div>
 
-            {/* Button */}
+            {/* Login Button */}
             <div className="flex justify-content mt-6">
               <button className="bg-pink-500 text-white rounded-md ml-[10px] px-3 py-1 hover:bg-pink-700 duration-200">
                 Login
               </button>
+
               <div className="ml-[150px]">
                 <p>
-                    Not registered ?{" "}
-                    <Link
+                  Not registered?{" "}
+                  <Link
                     to="/signup"
                     className="underline text-blue-500 cursor-pointer"
-                    >
+                  >
                     Signup
-                    </Link>{" "}
+                  </Link>{" "}
                 </p>
               </div>
             </div>

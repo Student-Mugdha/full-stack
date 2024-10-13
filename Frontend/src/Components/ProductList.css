@@ -1,0 +1,106 @@
+.product-page {
+  text-align: center;
+  padding: 20px;
+  background-image: url("https://thumbs.dreamstime.com/b/citrus-fruit-mix-dark-grey-concrete-table-food-background-healthy-eating-antioxidant-detox-dieting-clean-eating-diet-90899607.jpg"); /* Background image */
+  background-size: cover; /* Cover the entire page */
+  background-position: center; /* Center the background image */
+  color: black; /* Default text color for the page */
+  min-height: 100vh; /* Ensure the background covers full height */
+}
+
+/* Header styles */
+.page-header {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+  margin-top: 50px;
+  color: black; /* Changed to black */
+}
+
+/* Product container styles */
+.product-container {
+  display: flex; /* Display flex to align items side by side */
+  justify-content: space-between; /* Space between the fruit and veggie sections */
+  align-items: center;
+  flex-wrap: wrap; /* Allows items to wrap if needed */
+  gap: 20px; /* Space between cards */
+  max-width: 1200px; /* Set a max width for better layout */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Section styles */
+.section {
+  display: flex; /* Use flex to center content */
+  flex-direction: column; /* Arrange items in a column */
+  justify-content: center; /* Center items vertically */
+  align-items: center; /* Center items horizontally */
+  width: 45%; /* Each section takes less than half the space */
+}
+
+/* Card styles */
+.product-card {
+  position: relative; /* Allow overlay positioning */
+  background-color: rgba(
+    51,
+    51,
+    51,
+    0.9
+  ); /* Increased opacity for better visibility */
+  width: 100%; /* Make card responsive */
+  height: 400px; /* Fixed height */
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex; /* Use flex for centering */
+  flex-direction: column; /* Stack content vertically */
+  justify-content: center; /* Center content vertically */
+  background-size: cover; /* Cover the card with the image */
+  background-position: center; /* Center the image */
+}
+
+/* Background images for fruit and veggie sections */
+.product-card.fruit-card {
+  background-image: url("https://t3.ftcdn.net/jpg/03/95/29/26/240_F_395292683_JXA1oV7arslB4m1fZI2kgjkmmR5tJY6T.jpg");
+}
+
+.product-card.veggie-card {
+  background-image: url("https://t3.ftcdn.net/jpg/03/95/29/26/240_F_395292683_JXA1oV7arslB4m1fZI2kgjkmmR5tJY6T.jpg");
+}
+
+/* Title colors and sizes */
+.product-title {
+  color: white; /* Change title color to white for better visibility */
+  font-size: 2.5rem; /* Increase font size for better visibility */
+  font-weight: bold; /* Make the title bold */
+  z-index: 2; /* Ensure title is above overlay */
+}
+
+/* Button styles */
+.product-button {
+  background-color: rgb(177, 74, 34);
+  border: none; /* Removed border */
+  padding: 12px 24px; /* Increased padding */
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  border-radius: 20px; /* Made the button more rounded */
+  margin-top: auto; /* Push the button to the bottom */
+  z-index: 2; /* Ensure button is above overlay */
+}
+
+.product-button:hover {
+  background-color: rgb(153, 54, 14);
+  color: white;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+  }
+}
